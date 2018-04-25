@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="branch:deeplink:emaillinks" content="1435pm" />
   <title>Journey Demo</title>
-  <img src="imgs/logo.png" alt="Branch">
+  <img id="bg" src="imgs/logo.png" alt="Branch">
   <script>
     // load Branch
     (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
@@ -17,12 +17,17 @@
 	        'user_id': '45123'
 	    }
 	});
+
+	if(window.location.href.includes("smart"))
+		document.getElementById("bg").src="imgs/web-smart.png";
+	if(window.location.href.includes("speaker"))
+		document.getElementById("bg").src="imgs/web-speaker.png";
+	if(window.location.href.includes("google"))
+		document.getElementById("bg").src="imgs/web-google.png";
   </script>
 </head>
 <body>
 
-<h1>This is a Heading</h1>
-<p>This is a paragraph.</p>
 
 </body>
 </html>
