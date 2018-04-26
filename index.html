@@ -20,7 +20,7 @@
   <meta name="branch:deeplink:emaillinks" content="1435pm" />
   <title>Journey Demo</title>
   <div class="imgbox">
-  	<img class="center-fit" id="bg" src="imgs/logo.png" alt="Branch">
+  	<img class="center-fit" id="bg" src="imgs/home.png" alt="Branch">
   </div>
   <script>
     // load Branch
@@ -29,7 +29,7 @@
     branch.init('key_test_alyZcIt171fcEH9mYwTj5ihgCznzSe2d');
     branch.setBranchViewData({
 	    data: {
-	        '$deeplink_path': window.location.pathname,
+	        'url': window.location.href,
 	        'picture_id': '12345',
 	        'user_id': '45123'
 	    }
