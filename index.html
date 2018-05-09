@@ -41,7 +41,12 @@
 	});
 
   var imgid = window.location.search.substr(1)
+  var emailimg = imgid.split("=")[0]
   var surl = "imgs/web/" + imgid + ".png"
+  if(imgid.includes("deep_link")){
+    surl = "imgs/web/" + emailimg + ".png"
+  }
+
   document.getElementById("bg").src=surl;
 	// if(window.location.href.includes("smart"))
 	// 	document.getElementById("bg").src="imgs/web-smart.png";
