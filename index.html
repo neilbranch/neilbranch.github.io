@@ -40,12 +40,15 @@
 	    }
 	});
 
-	if(window.location.href.includes("smart"))
-		document.getElementById("bg").src="imgs/web-smart.png";
-	if(window.location.href.includes("speaker"))
-		document.getElementById("bg").src="imgs/web-speaker.png";
-	if(window.location.href.includes("google"))
-		document.getElementById("bg").src="imgs/web-google.png";
+  var imgid = window.location.search.substr(1)
+  var surl = "imgs/web/" + imgid + ".png"
+  document.getElementById("bg").src=surl;
+	// if(window.location.href.includes("smart"))
+	// 	document.getElementById("bg").src="imgs/web-smart.png";
+	// if(window.location.href.includes("speaker"))
+	// 	document.getElementById("bg").src="imgs/web-speaker.png";
+	// if(window.location.href.includes("google"))
+	// 	document.getElementById("bg").src="imgs/web-google.png";
   </script>
 </head>
 <body>
