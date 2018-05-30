@@ -2,16 +2,16 @@
 <html>
 <head>
 	<style>
-  * {
-   margin: 0;
-   padding: 0;
-  }
+  body, html
+            {
+                margin: 0; padding: 0; height: 100%; overflow: hidden;
+            }
   </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="branch:deeplink:emaillinks" content="1435pm" />
   <title>Journey Demo</title>
   <div class="page">
-  	<iframe id="page" src="https://branch.io/" alt="Branch">
+  	<iframe id="page" width="100%" height="100%" src="https://branch.io/">
   </div>
   <script>
     // load Branch
@@ -33,15 +33,14 @@
 
   requestParams = window.location.search.substr(1).split("&")
 
-  document.getElementById("page").src= fakeGet(requestParams,"partner");
+  document.getElementById("page").src = fakeGet(requestParams,"partner");
 
-  function fakeGet(param[],key){
+  function fakeGet(param,key){
     for (var i = param.length - 1; i >= 0; i--) {
       if(param[i].includes(key)){
         return param[i].split("=")[1]
       }
     }
-
     return null
   }
 
