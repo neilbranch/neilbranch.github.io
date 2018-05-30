@@ -19,8 +19,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="branch:deeplink:emaillinks" content="1435pm" />
   <title>Journey Demo</title>
-  <div class="imgbox">
-  	<img class="center-fit" id="bg" src="imgs/home.png" alt="Branch">
+  <div class="page">
+  	<iframe class="center-fit" id="page" src="https://branch.io/" alt="Branch">
   </div>
   <script>
     // load Branch
@@ -40,20 +40,20 @@
 	    }
 	});
 
-  var imgid = window.location.search.substr(1)
-  var emailimg = imgid.split("=")[0]
-  var surl = "imgs/web/" + imgid + ".png"
-  if(imgid.includes("deep_link")){
-    surl = "imgs/web/" + emailimg + ".png"
+  requestParams = window.location.search.substr(1).split("&")
+
+  document.getElementById("page").src= fakeGet(requestParams,"partner");
+
+  function fakeGet(param[],key){
+    for (var i = param.length - 1; i >= 0; i--) {
+      if(param[i].includes(key)){
+        return param[i].split("=")[1]
+      }
+    }
+
+    return null
   }
 
-  document.getElementById("bg").src=surl;
-	// if(window.location.href.includes("smart"))
-	// 	document.getElementById("bg").src="imgs/web-smart.png";
-	// if(window.location.href.includes("speaker"))
-	// 	document.getElementById("bg").src="imgs/web-speaker.png";
-	// if(window.location.href.includes("google"))
-	// 	document.getElementById("bg").src="imgs/web-google.png";
   </script>
 </head>
 <body>
