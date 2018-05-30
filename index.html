@@ -23,6 +23,16 @@
       }
     });
 
+    function fakeGet(param,key){
+    for (var i = param.length - 1; i >= 0; i--) {
+      if(param[i].includes(key)){
+        alert("param is "+param[i].split("=")[1]);
+        return param[i].split("=")[1];
+      }
+    }
+    return null;
+    }
+
     branch.setBranchViewData({
 	    data: {
 	        'url': window.location.href,
@@ -37,16 +47,6 @@
   if(partnerURL!=null){
     document.getElementById("page").src = partnerURL;
     alert("set!");
-  }
-
-  function fakeGet(param,key){
-    for (var i = param.length - 1; i >= 0; i--) {
-      if(param[i].includes(key)){
-        alert("param is "+param[i].split("=")[1]);
-        return param[i].split("=")[1];
-      }
-    }
-    return null;
   }
 
   </script>
