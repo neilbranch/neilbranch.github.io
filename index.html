@@ -22,17 +22,20 @@
         "foo" : "bar"
       }
     });
+
     branch.setBranchViewData({
 	    data: {
 	        'url': window.location.href,
 	        'picture_id': '12345',
 	        'user_id': '45123'
 	    }
-	});
+	   });
 
-  requestParams = window.location.search.substr(1).split("&")
-
-  document.getElementById("page").src = fakeGet(requestParams,"partner");
+  var requestParams = window.location.search.substr(1).split("&")
+  var parterURL = fakeGet(requestParams,"partner");
+  if(parterURL!=null){
+    document.getElementById("page").src = parterURL
+  }
 
   function fakeGet(param,key){
     for (var i = param.length - 1; i >= 0; i--) {
