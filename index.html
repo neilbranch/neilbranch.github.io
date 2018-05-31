@@ -9,6 +9,7 @@
   </style>
   <meta name="branch:deeplink:emaillinks" content="1435pm" />
   <title>Journey Demo</title>
+  <img id="bg" width="100%" height="100%"  src="" alt="">
   <iframe id="page" width="100%" height="100%" src=""></iframe>
   <script>
     // load Branch
@@ -41,9 +42,14 @@
     var requestParams = window.location.search.substr(1).split("&");
     var partnerURL = fakeGet(requestParams,"partner");
 
-    if(partnerURL!=null){
-      document.getElementById("page").src = partnerURL;
-    }
+      if(window.location.href.includes("google"))
+        document.getElementById("bg").src="imgs/web-google.png";
+      else{
+         if(partnerURL!=null){
+          document.getElementById("page").src = partnerURL;
+        }
+      }
+   
 
   </script>
 </head>
