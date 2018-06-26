@@ -7,7 +7,7 @@
         margin: 0; padding: 0; height: 100%; overflow: hidden;
     }
   </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <meta name="branch:deeplink:emaillinks" content="1435pm" />
   <title>Journey Demo</title>
   <img id="bg" width="100%" height="100%"  src="" alt="">
@@ -19,7 +19,7 @@
     branch.init('key_live_kmq5iTz98YejDI5l9Fz3inpkuskwOiMX',{
       'make_new_link' : true,
       metadata:{
-        "foo" : "bar"
+        "origin" : document.getElementById("page").contentWindow.location.href
       }
     });
 
@@ -42,9 +42,10 @@
 
     var requestParams = window.location.search.substr(1).split("&");
     var partnerURL = fakeGet(requestParams,"partner");
+    var imgURL = fakeGet(requestParams,"img")
 
-      if(window.location.href.includes("google")){
-        document.getElementById("bg").src="imgs/web/google.png";
+      if(imgURL != null){
+        document.getElementById("bg").src="imgs/web/"+imgURL;
         document.getElementById("page").style.display = "none";
       }
       else{
