@@ -25,8 +25,9 @@
 
     branch.data(function(err, data) {
       console.log(err, data); 
+      alert(data);
     });
-    
+
     function fakeGet(param,key){
       for (var i = param.length - 1; i >= 0; i--) {
         if(param[i].includes(key)){
