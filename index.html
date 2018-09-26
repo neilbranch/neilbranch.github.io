@@ -31,14 +31,6 @@
       console.log(err, data); 
     });
 
-    branch.setIdentity('nma@branch.io');
-
-    branch.logEvent(
-     "REGISTRATION_SUCCESSFUL",
-     { metadata: 'web_event' },
-     function(err) { console.log(err); }
-    );
-
     function fakeGet(param,key){
       for (var i = param.length - 1; i >= 0; i--) {
         if(param[i].includes(key)){
@@ -71,6 +63,15 @@
         }
       }
    
+   
+    branch.setIdentity('nma@branch.io');
+
+    branch.logEvent(
+     "REGISTRATION_SUCCESSFUL",
+     { metadata: 'web_event' },
+     function(err) { console.log(err); }
+    );
+
 
   </script>
 </head>
