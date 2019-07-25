@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+    body, html
+    {
+        margin: 0; padding: 0; height: 100%; overflow: hidden;
+        overflow: hidden !important;
+        position: fixed !important;
+    }
+<<<<<<< HEAD
+
+    branch-banner-no-scroll{
+      overflow: hidden;
+    }
+
+=======
+>>>>>>> parent of 5bf2f42... disable scroll
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="branch:deeplink:nma_data" content="1435pm" />
+  <title>Journey Demo</title>
+  <!-- <button type="button" onclick="branch.closeJourney(function(err) { console.log(err); });">Click Me!</button> -->
+  <img id="bg" width="100%" height="100%"  src="" alt="">
+  <iframe id="page" width="100%" height="100%" src=""></iframe>
+
+
+  <script>
+
+    // load Branch
+    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent".split(" "), 0);
+    // init Branch
+    branch.init('key_live_hcD7oLu70XbgzM8bXuxYajlcDqjEUdV0',{
+      metadata:{
+        "origin" : document.getElementById("page").contentWindow.location.href
+      }
+    });
+
+    branch.data(function(err, data) {
+      console.log(err, data); 
+      console.log(data.referring_link)
+    });
+
+    function fakeGet(param,key){
+      for (var i = param.length - 1; i >= 0; i--) {
+        if(param[i].includes(key)){
+          return param[i].split("=")[1];
+        }
+      }
+      return null;
+    }
+
+    branch.setBranchViewData({
+	    data: {
+	        'url': window.location.href,
+	        'picture_id': '12345',
+	        'user_id': '45123'
+	    }
+	   });
+
+    var requestParams = window.location.search.substr(1).split("&");
+    var partnerURL = fakeGet(requestParams,"partner");
+    var imgURL = fakeGet(requestParams,"img")
+
+      if(imgURL != null){
+        document.getElementById("bg").src="imgs/web/"+imgURL;
+        document.getElementById("page").style.display = "none";
+      }
+      else{
+         if(partnerURL!=null){
+          document.getElementById("page").src = partnerURL;
+          document.getElementById("bg").style.display = "none";
+        }
+      }
+   
+   
+    branch.setIdentity('nma@branch.io');
+
+    branch.logEvent(
+     "REGISTRATION_SUCCESSFUL",
+     { metadata: 'web_event' },
+     function(err) { console.log(err); }
+    );
+
+
+  </script>
+</head>
+<body>
+</body>
+</html>
